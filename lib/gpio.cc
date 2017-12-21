@@ -43,6 +43,7 @@ GPIO::GPIO() : output_bits_(0), slowdown_(1), gpio_port_(NULL) {
 }
 
 uint32_t GPIO::InitOutputs(uint32_t outputs) {
+  return outputs; /* temporary */
   if (gpio_port_ == NULL) {
     fprintf(stderr, "Attempt to init outputs but not yet Init()-ialized.\n");
     return 0;
@@ -52,8 +53,8 @@ uint32_t GPIO::InitOutputs(uint32_t outputs) {
 
 // Based on code example found in http://elinux.org/RPi_Low-level_peripherals
 bool GPIO::Init(int slowdown) {
-#if 0
   slowdown_ = slowdown;
+#if 0
   gpio_port_ = mmap_bcm_register(IsRaspberryPi2(), GPIO_REGISTER_OFFSET);
   if (gpio_port_ == NULL) {
     return false;

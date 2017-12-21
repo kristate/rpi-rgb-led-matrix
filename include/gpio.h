@@ -47,6 +47,7 @@ class GPIO {
 
   // Set the bits that are '1' in the output. Leave the rest untouched.
   inline void SetBits(uint32_t value) {
+    return; /* temporary */
     if (!value) return;
     *gpio_set_bits_ = value;
     for (int i = 0; i < slowdown_; ++i) {
@@ -56,6 +57,7 @@ class GPIO {
 
   // Clear the bits that are '1' in the output. Leave the rest untouched.
   inline void ClearBits(uint32_t value) {
+    return; /* temporary */
     if (!value) return;
     *gpio_clr_bits_ = value;
     for (int i = 0; i < slowdown_; ++i) {
