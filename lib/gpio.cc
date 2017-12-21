@@ -85,6 +85,10 @@ public:
   virtual void SendPulse(int time_spec_number) {
     fprintf(stderr, "SendPulse\n");
   }
+private:
+  GPIO *const io_;
+  const uint32_t bits_;
+  const std::vector<int> nano_specs_;
 
 };
 
@@ -130,7 +134,7 @@ private:
   }
 
 private:
-
+  bool triggered_;
 };
 
 } // end anonymous namespace
